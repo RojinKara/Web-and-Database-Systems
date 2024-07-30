@@ -1,4 +1,4 @@
-∗ Used CSS, JavaScript and MySQL to make a website that works on University of Surrey’s Societies Database.
+∗ Used CSS, JavaScript, EJS and MySQL to make a website that works on University of Surrey’s Societies Database.
 
 ∗ Website allows users to explore societies, departments, courses, students, hobbies and activities.
 
