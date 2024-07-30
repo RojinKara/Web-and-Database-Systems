@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Department Table</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<link rel='stylesheet' href='/stylesheets/styles.css' />
+<nav>
+    <ul>
+        <li><a href="/"> Home </a> </li>
+        <li><a href="/department"> Department </a> </li>
+        <li><a href="/course"> Course </a> </li>
+        <li><a href="/student"> Student </a> </li>
+        <li><a href="/hobbies"> Hobbies </a> </li>
+        <li><a href="/societies"> Societies </a> </li>
+        <li><a href="/activities"> Activities </a> </li>
+    </ul>
+</nav>
+<body>
+<h1>Department Table</h1>
+<table>
+    <thead>
+    <tr>
+        <% fields.forEach(function(field) { %>
+            <th><%= field.name %> </th>
+        <% }) %>
+    </tr>
+    </thead>
+    <% rows.forEach(function(row) { %>
+        <tr onclick="window.location.href = '/viewonedepartment/<%= row.DEPARTMENT_ID %>'">
+            <td><%= row.DEPARTMENT_ID %></td>
+            <td><%= row.Department_Name %></td>
+        </tr>
+    <% }); %>
+</table>
+</body>
+</html>

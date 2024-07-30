@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!-- Based on the html template of http://www.foo.com -->
+<head>
+    <title>Update a student</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+</head>
+<body>
+
+<form action="/update" method="POST">
+    <div>
+        <label>
+            URN:
+            <input name="shownurn" value="<%= rows[0].URN %>" type="text" disabled/>
+        </label>
+    </div>
+    <input name="URN" value="<%= rows[0].URN %>" type="hidden">
+    <div>
+        <label>
+            Stu_FName:
+            <input name="Stu_FName" value="<%= rows[0].Stu_FName %>" type="text" required pattern="[A-Z][a-z]*"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Stu_LName:
+            <input name="Stu_LName" value="<%= rows[0].Stu_LName %>" type="text" required pattern="[A-Z][a-z]*"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Stu_DOB:
+            <input name="Stu_DOB" value="<%= rows[0].Stu_DOB.toISOString().substring(0, 10) %>" type="date" required pattern="\d{4}-\d{2}-\d{2}"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Stu_Phone:
+            <input name="Stu_Phone" value="<%= rows[0].Stu_Phone %>" type="text" required pattern="\d{11}"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Stu_Course:
+            <input name="Stu_Course" value="<%= rows[0].Stu_Course %>" type="text" required pattern="\d{3}"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            Stu_Type:
+            <input name="Stu_Type" value="<%= rows[0].Stu_Type %>" type="text" required pattern="UG|PG"/>
+        </label>
+    </div>
+    <div>
+        <input class="cta-button" type="submit" value="Update">
+    </div>
+</form>
+<script>
+    let element = document.createElement("h1");
+    let url = new URL(window.location.href);
+    if (url.searchParams.get("s") !== null) {
+        if (url.searchParams.get("s") === "false") {
+            element.innerText = "error";
+        } else if (url.searchParams.get("s") === "true") {
+            element.innerText = "updated data";
+        }
+        document.body.append(element);
+    }
+</script>
+</body>
+</html>

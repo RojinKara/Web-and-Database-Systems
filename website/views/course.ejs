@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Table</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<link rel='stylesheet' href='/stylesheets/styles.css' />
+<nav>
+    <ul>
+        <li><a href="/"> Home </a> </li>
+        <li><a href="/department"> Department </a> </li>
+        <li><a href="/course"> Course </a> </li>
+        <li><a href="/student"> Student </a> </li>
+        <li><a href="/hobbies"> Hobbies </a> </li>
+        <li><a href="/societies"> Societies </a> </li>
+        <li><a href="/activities"> Activities </a> </li>
+    </ul>
+</nav>
+<body>
+<h1>Course Table</h1>
+<table>
+    <thead>
+    <tr>
+        <% fields.forEach(function(field) { %>
+            <th><%= field.name %> </th>
+        <% }) %>
+    </tr>
+    </thead>
+    <% rows.forEach(function(row) { %>
+        <tr onclick="window.location.href = '/viewonecourse/<%= row.Crs_Code %>'">
+            <td><%= row.Crs_Code %></td>
+            <td><%= row.Crs_Title %></td>
+            <td><%= row.Crs_Enrollment %></td>
+            <td><%= row.Crs_Department %></td>
+        </tr>
+    <% }); %>
+</table>
+</body>
+</html>

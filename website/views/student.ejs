@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Table</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<nav>
+    <ul>
+        <li><a href="/"> Home </a> </li>
+        <li><a href="/department"> Department </a> </li>
+        <li><a href="/course"> Course </a> </li>
+        <li><a href="/student"> Student </a> </li>
+        <li><a href="/hobbies"> Hobbies </a> </li>
+        <li><a href="/societies"> Societies </a> </li>
+        <li><a href="/activities"> Activities </a> </li>
+    </ul>
+</nav>
+<body>
+<h1>Student Table</h1>
+<table>
+    <thead>
+    <link rel='stylesheet' href='/stylesheets/styles.css' />
+    <tr>
+        <% fields.forEach(function(field) { %>
+            <th><%= field.name %> </th>
+        <% }) %>
+    </tr>
+    </thead>
+    <tbody>
+    <% rows.forEach(function(row) { %>
+        <tr onclick="window.location.href = '/viewonestudent/<%= row.URN %>'">
+            <td><%= row.URN %></td>
+            <td><%= row.Stu_FName %></td>
+            <td><%= row.Stu_LName %></td>
+            <td><%= row.Stu_DOB.toLocaleDateString() %></td>
+            <td><%= row.Stu_Phone %></td>
+            <td><%= row.Stu_Course %></td>
+            <td><%= row.Stu_Type %></td>
+            <td><a href="/update/<%= row.URN %>">Update</a></td>
+            <td><a href="/delete/<%= row.URN %>">Delete</a></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+</body>
+</html>
